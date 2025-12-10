@@ -55,6 +55,17 @@ function analyzeSalesData(data, options) {
   ) {
     throw new Error("Некорректные входные данные");
   }
+
+  if (!data.sellers.length) {
+    throw new Error("Некорректные входные данные: отсутствуют продавцы");
+  }
+  if (!data.products.length) {
+    throw new Error("Некорректные входные данные: отсутствуют продукты");
+  }
+  if (!data.purchase_records.length) {
+    throw new Error("Некорректные входные данные: отсутствуют продажи");
+  }
+
   // @TODO: Проверка наличия опций
   const { calculateRevenue, calculateBonus } = options;
   if (
